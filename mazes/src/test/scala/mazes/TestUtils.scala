@@ -57,7 +57,7 @@ val simpleSquareTestMazePath = List(
 )
 
 val simpleSquareTestMazeDisplayWithoutPath = "  #\n# #\n   "
-val simpleSquareTestMazeDisplayWithPath = "**#\n#*#\n **it "
+val simpleSquareTestMazeDisplayWithPath = "**#\n#*#\n **"
 
 val simpleRectangleTestMaze = Maze(
   4,
