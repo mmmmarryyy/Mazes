@@ -1,8 +1,8 @@
 import Dependencies.{Versions => _, _}
 
-lazy val samples = project
+lazy val mazes = project
   .settings(
-    name := "samples",
+    name := "mazes",
     scalaVersion := Versions.scala3,
     libraryDependencies ++= Seq(scalaTest, scalastic)
   )
