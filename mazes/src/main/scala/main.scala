@@ -18,12 +18,13 @@ import scala.util.Random
 def main(): Unit = {
   println("Welcome to the Maze Generator and Solver!")
 
-  val height = InputUtils.readInt(
-    s"Enter the height of the maze (odd number from $minMazeSize to $maxMazeSize):",
-    minMazeSize,
-    maxMazeSize,
-    true
-  )
+  val height = InputUtils
+    .readInt( // всякие взаимодействия я бы вынес в отдельные классы, чтобы менять их в одном месте, но то, что вынесла вне функции, уже супер
+      s"Enter the height of the maze (odd number from $minMazeSize to $maxMazeSize):",
+      minMazeSize,
+      maxMazeSize,
+      true
+    )
   val width = InputUtils.readInt(
     s"Enter the height of the maze (odd number from $minMazeSize to $maxMazeSize):",
     minMazeSize,
@@ -41,10 +42,11 @@ def main(): Unit = {
     1,
     2
   )
-  val generator = generatorChoice match {
-    case 1 => RecursiveDivisionGenerator
-    case 2 => RecursiveBacktrackingGenerator
-  }
+  val generator =
+    generatorChoice match { // вот эту логику можно было бы вынести в метод apply в классе Generator
+      case 1 => RecursiveDivisionGenerator
+      case 2 => RecursiveBacktrackingGenerator
+    }
 
   val maze = generator.generate(height, width, useSurfaceTypes)
 

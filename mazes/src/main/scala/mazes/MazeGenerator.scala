@@ -23,7 +23,7 @@ trait Generator {
 /** Implementation of maze generation using recursive division algorithm.
   */
 object RecursiveDivisionGenerator extends Generator {
-  private val horizontal = 0
+  private val horizontal = 0 //
   private val vertical = 1
 
   private def divide(

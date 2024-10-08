@@ -41,12 +41,12 @@ object DefaultRenderer extends Renderer {
         Array
           .range(0, width)
           .map { col =>
-            if (grid(row)(col).cellType == Cell.WALL) {
+            if (grid(row)(col).cellType == Cell.WALL) { // тут допускаю использование apply так как внутренняя реализация, но можно было бы не по range бежать, а прямо по вектору по типу grid.map(_.map(_.cellType))
               '#'
             } else if (path.contains(Coordinate(row, col))) {
               '*'
             } else {
-              grid(row)(col).surfaceType match {
+              grid(row)(col).surfaceType match { // суть рендеров я понял, задумка крутая, классно, что получилось реализовать, но всю логику отображения разных типов поверхностей и стен я бы собрал в мапе, так было бы читать проще + было бы неплохо выводить обозначения в консоль, а то я в начале не понял, что это за значки :)
                 case SurfaceType.Standard => ' '
                 case SurfaceType.Sand     => '~'
                 case SurfaceType.Coin     => '$'

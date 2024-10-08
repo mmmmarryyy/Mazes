@@ -9,10 +9,13 @@ object InputUtils {
   ): Int = {
     println(message)
 
-    val input = scala.io.StdIn.readLine()
+    val input =
+      scala.io.StdIn
+        .readLine() // в scala stdin есть такой метод как readInt, тут он тебе прямо хорошо ложится
 
     try {
-      val inputInt = input.toInt
+      val inputInt =
+        input.toInt // в принципе норм, но я бы лучше использовал toIntOption метод, так и от try/catch бы избавилась
       if (
         inputInt >= lowerLimit && inputInt <= upperLimit && ((oddFlag && inputInt % 2 != 0) || !oddFlag)
       ) {

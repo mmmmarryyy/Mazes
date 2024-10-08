@@ -4,7 +4,7 @@ import scala.annotation.tailrec
 
 /** Trait for maze solvers.
   */
-trait Solver {
+trait Solver { // все солверы стекобезопасны - супер
 
   /** Find a path from a given starting point to a given ending point.
     *
